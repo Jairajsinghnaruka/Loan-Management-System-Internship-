@@ -1,0 +1,225 @@
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  background: #0b1120;
+  color: white;
+  position: relative;
+  overflow-x: hidden;
+}
+
+/* ==========================================================================
+   Structural Adaptive Sidebar Construction (Now hidden by default everywhere)
+   ========================================================================== */
+.sidebar {
+  width: 260px;
+  background: #111827; 
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1000;
+  box-shadow: 10px 0 30px rgba(0, 0, 0, 0.5);
+  
+  /* Start completely off-screen by default on both desktop & mobile */
+  transform: translateX(-100%); 
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Slide in smoothly when active */
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar-header {
+  padding: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.sidebar-header h2 {
+  margin-top: 10px;
+  margin-bottom: 0;
+  font-size: 22px;
+  background: linear-gradient(to right, #10b981, #06b6d4);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.sidebar-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 20px;
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Close trigger x button inside the panel */
+.sidebar-close-btn {
+  display: block;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  font-size: 16px;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.sidebar-close-btn:hover {
+  color: #f43f5e;
+}
+
+.sidebar-nav {
+  padding: 15px;
+}
+
+.nav-btn {
+  width: 100%;
+  margin-bottom: 6px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #94a3b8;
+  text-align: left;
+  padding: 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+  background: rgba(255, 255, 255, 0.03);
+  color: white;
+}
+
+.nav-btn.active {
+  background: rgba(6, 182, 212, 0.1);
+  color: #06b6d4;
+  border-color: rgba(6, 182, 212, 0.2);
+}
+
+.sidebar-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.sidebar-footer p {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: white;
+}
+
+.sidebar-footer small {
+  color: #94a3b8;
+}
+
+.logout-btn {
+  background: rgba(244, 63, 94, 0.1);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+  color: #f43f5e;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.logout-btn:hover {
+  background: #f43f5e;
+  color: white;
+}
+
+.logout-svg-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Dimmed background overlay wrapper */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ==========================================================================
+   Main Content Workspace Adjustments (No left offset needed anymore)
+   ========================================================================== */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  margin-left: 0; /* Changed from 260px to 0 so content fills screen */
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.page-header {
+  margin-bottom: 30px;
+}
+
+.header-title-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Three Line Button Architecture (Now visible on all screen dimensions) */
+.hamburger-menu-btn {
+  display: flex; 
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 18px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 998;
+}
+
+.hamburger-menu-btn .bar {
+  width: 100%;
+  height: 2.5px;
+  background-color: white;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.hamburger-menu-btn:hover .bar {
+  background-color: #06b6d4; /* Color flare highlights on hover */
+}
+
+/* Small screen tweaks */
+@media (max-width: 600px) {
+  .main-content {
+    padding: 30px 16px;
+  }
+}

@@ -1,0 +1,14 @@
+/src
+├── /config
+│   └── db.js            # MySQL connection
+├── /controllers
+│   ├── customerController.js  # Handles "Create Customer"
+│   ├── loanController.js      # Handles "Issue System Loan"
+│   ├── paymentController.js   # Handles "Receive Payment"
+│   └── dashboardController.js # Handles "System Overview" data
+├── /routes
+│   └── apiRoutes.js      # All API endpoints
+├── /services
+│   ├── loanService.js    # Logic for interest/balance calculations
+│   └── reportService.js  # Logic for dashboard stats
+└── server.js             # Main entry point

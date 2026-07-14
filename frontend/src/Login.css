@@ -1,0 +1,494 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+.login-container {
+  min-height: 100vh;
+  background: #0b1120;
+  overflow: hidden;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px;
+}
+
+/* Layout */
+
+.content {
+  width: 100%;
+  max-width: 1200px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+/* Left Side */
+
+.badge {
+  display: inline-block;
+
+  padding: 10px 20px;
+
+  border-radius: 50px;
+
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+
+  color: #a78bfa;
+  margin-bottom: 25px;
+}
+
+.left-section h1 {
+  color: white;
+  font-size: 64px;
+  line-height: 1.1;
+}
+
+.left-section p {
+  color: #94a3b8;
+  margin-top: 25px;
+  font-size: 18px;
+  max-width: 500px;
+}
+
+/* Login Card */
+
+.login-card {
+  background: rgba(255,255,255,0.05);
+
+  backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  border-radius: 35px;
+
+  padding: 40px;
+
+  box-shadow: 0 0 30px rgba(0,0,0,0.3);
+}
+
+.login-card h2 {
+  color: white;
+  font-size: 42px;
+}
+
+.subtitle {
+  color: #94a3b8;
+  margin: 10px 0 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  display: block;
+  color: #cbd5e1;
+  margin-bottom: 10px;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 15px;
+
+  background: rgba(255,255,255,0.05);
+
+  border: 1px solid rgba(255,255,255,0.1);
+
+  border-radius: 15px;
+
+  color: white;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #8b5cf6;
+}
+
+.forgot-password {
+  text-align: right;
+  color: #8b5cf6;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.login-btn {
+  width: 100%;
+
+  padding: 15px;
+
+  border: none;
+
+  border-radius: 15px;
+
+  background: linear-gradient(
+    to right,
+    #7c3aed,
+    #06b6d4
+  );
+
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.login-btn:hover {
+  transform: scale(1.02);
+}
+
+.signup-text {
+  text-align: center;
+  color: #94a3b8;
+  margin-top: 20px;
+}
+
+.signup-text span {
+  color: #8b5cf6;
+  cursor: pointer;
+}
+
+/* Animated Blobs */
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+
+  animation: blobMove 12s infinite ease-in-out;
+}
+
+.blob1 {
+  width: 500px;
+  height: 500px;
+
+  background: rgba(139,92,246,0.2);
+
+  top: 0;
+  left: 0;
+}
+
+.blob2 {
+  width: 500px;
+  height: 500px;
+
+  background: rgba(6,182,212,0.2);
+
+  bottom: 0;
+  right: 0;
+
+  animation-delay: 3s;
+}
+
+.blob3 {
+  width: 400px;
+  height: 400px;
+
+  background: rgba(236,72,153,0.15);
+
+  top: 30%;
+  left: 30%;
+
+  animation-delay: 6s;
+}
+
+@keyframes blobMove {
+  0% {
+    transform: translate(0,0) scale(1);
+  }
+
+  33% {
+    transform: translate(150px,-120px) scale(1.4);
+  }
+
+  66% {
+    transform: translate(-120px,100px) scale(0.6);
+  }
+
+  100% {
+    transform: translate(0,0) scale(1);
+  }
+}
+
+/* Stars */
+
+.stars {
+  position: absolute;
+  inset: 0;
+}
+
+.stars-layer-1,
+.stars-layer-2,
+.stars-layer-3 {
+  position: absolute;
+  inset: 0;
+}
+
+.stars-layer-1::before,
+.stars-layer-2::before,
+.stars-layer-3::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.stars-layer-1::before {
+  background-image:
+  radial-gradient(white 1px, transparent 1px);
+  background-size: 100px 100px;
+
+  animation: starsMove 10s linear infinite;
+}
+
+.stars-layer-2::before {
+  background-image:
+  radial-gradient(rgba(255,255,255,.7) 1px, transparent 1px);
+
+  background-size: 150px 150px;
+
+  animation: starsMove 15s linear infinite;
+}
+
+.stars-layer-3::before {
+  background-image:
+  radial-gradient(rgba(255,255,255,.5) 1px, transparent 1px);
+
+  background-size: 200px 200px;
+
+  animation: starsMove 20s linear infinite;
+}
+
+@keyframes starsMove {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-60px);
+  }
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+
+  .content {
+    grid-template-columns: 1fr;
+  }
+
+  .left-section {
+    text-align: center;
+  }
+
+  .left-section h1 {
+    font-size: 42px;
+  }
+
+  .login-card {
+    padding: 30px;
+  }
+}
+.message {
+  text-align: center;
+  color: #34d399;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+/* ==========================================================================
+   Cute Cosmic Jelly Loader 
+   ========================================================================== */
+
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  text-align: center;
+  min-height: 380px; /* Maintains stable card structure during loader */
+  animation: cuteFadeIn 0.4s ease-out forwards;
+}
+
+.loader-container h3 {
+  color: white;
+  font-size: 22px;
+  margin-top: 35px;
+  font-family: sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.loader-text {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-top: 6px;
+}
+
+/* Character Frame Container */
+.cosmic-jelly-wrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* The Cute Body (Glow-in-the-dark Space Slime) */
+.cosmic-jelly {
+  position: relative;
+  width: 75px;
+  height: 70px;
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  border-radius: 50% 50% 45% 45% / 60% 60% 40% 40%; /* Gives it a chubby, organic base */
+  box-shadow: 0 0 25px rgba(139, 92, 246, 0.6),
+              inset -6px -6px 12px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: jellyFloat 1.8s infinite ease-in-out;
+  z-index: 2;
+}
+
+/* Cyberpunk Glass Helmet Visor */
+.space-visor {
+  position: absolute;
+  top: 22px;
+  width: 50px;
+  height: 24px;
+  background: linear-gradient(180deg, #06b6d4, #0891b2);
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(6, 182, 212, 0.8),
+              inset 0 2px 4px rgba(255, 255, 255, 0.4);
+  overflow: hidden;
+}
+
+/* Neon gleam passing through the visor */
+.visor-blink {
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 12px;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.6);
+  transform: skewX(-30deg);
+  animation: visorGleam 1.8s infinite linear;
+}
+
+/* Cute blushing cheeks behind the helmet */
+.jelly-cheeks {
+  position: absolute;
+  bottom: 12px;
+  width: 58px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.jelly-cheeks::before,
+.jelly-cheeks::after {
+  content: '';
+  width: 8px;
+  height: 5px;
+  background: #f472b6;
+  border-radius: 50%;
+  opacity: 0.7;
+  filter: blur(0.5px);
+}
+
+/* Orbit Path System */
+.pet-star-orbit {
+  position: absolute;
+  width: 110px;
+  height: 40px;
+  top: 25px;
+  transform: rotate(-15deg);
+  z-index: 3;
+  pointer-events: none;
+  animation: orbitRotate 2.2s infinite linear;
+}
+
+/* Tiny orbiting companion star */
+.mini-pet-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  background: #fde047;
+  /* Fun 4-pointed star shape */
+  clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%);
+  box-shadow: 0 0 12px #fde047;
+}
+
+/* Dynamic floor shadow */
+.jelly-shadow {
+  position: absolute;
+  bottom: 0;
+  width: 55px;
+  height: 8px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  filter: blur(2px);
+  animation: shadowScale 1.8s infinite ease-in-out;
+  z-index: 1;
+}
+
+/* ==========================================================================
+   Animations
+   ========================================================================== */
+
+@keyframes cuteFadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* Bouncy floating fluid movement */
+@keyframes jellyFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1, 1);
+  }
+  50% {
+    transform: translateY(-16px) scale(0.96, 1.04); /* Stretches as it flies high */
+  }
+}
+
+/* Correlating shadow response */
+@keyframes shadowScale {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(0.7);
+    opacity: 0.2; /* Dims when creature gets further away */
+  }
+}
+
+/* Quick laser swipe reflection across visor */
+@keyframes visorGleam {
+  0% { left: -30px; }
+  35%, 100% { left: 70px; }
+}
+
+/* 3D illusion orbit animation loop */
+@keyframes orbitRotate {
+  0% {
+    transform: rotate(-15deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotate(-15deg) rotateY(360deg);
+  }
+}

@@ -1,0 +1,189 @@
+.profile-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  box-sizing: border-box;
+}
+
+/* Header */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.back-btn,
+.delete-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.back-btn {
+  background: #06b6d4;
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+.back-btn:hover,
+.delete-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* Cards */
+.profile-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.profile-card h2,
+.profile-card h3 {
+  color: white;
+  margin: 0 0 20px 0;
+}
+
+/* Customer Info */
+.customer-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.customer-info span {
+  color: #94a3b8;
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.customer-info p {
+  color: white;
+  margin: 6px 0 0 0;
+  font-size: 15px;
+}
+
+/* Stats */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.stat-card h4 {
+  color: #94a3b8;
+  margin: 0 0 12px 0;
+  font-weight: 500;
+}
+
+.stat-card span {
+  color: white;
+  font-size: 32px;
+  font-weight: bold;
+  display: block;
+}
+
+.active span {
+  color: #10b981;
+}
+
+.pending span {
+  color: #f59e0b;
+}
+
+.overdue span {
+  color: #ef4444;
+}
+
+/* Amount */
+.amount {
+  font-size: 36px;
+  font-weight: bold;
+  color: #10b981;
+}
+
+/* Table */
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.loan-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.loan-table th {
+  color: #94a3b8;
+  text-align: left;
+  padding: 15px;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.loan-table td {
+  color: #e2e8f0;
+  padding: 15px;
+  font-size: 14px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.status {
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.status.active {
+  background: rgba(16, 185, 129, 0.15);
+  color: #10b981;
+}
+
+.status.pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: #f59e0b;
+}
+
+.status.overdue {
+  background: rgba(239, 68, 68, 0.15);
+  color: #ef4444;
+}
+
+.no-data {
+  text-align: center;
+  color: #64748b;
+  padding: 30px !important;
+}
+
+/* Mobile responsive breakpoints */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .back-btn,
+  .delete-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

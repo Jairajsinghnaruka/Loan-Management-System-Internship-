@@ -1,0 +1,226 @@
+/* ==========================================================================
+   Main Module Flex Layout Blocks
+   ========================================================================== */
+.loan-app-module {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.loan-app-split-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  gap: 24px;
+  align-items: start;
+}
+
+@media (max-width: 1024px) {
+  .loan-app-split-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Panel Containers Base Styles */
+.loan-form-panel, .loan-ledger-panel {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 24px;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Upper Mini Metrics Cards Grid System
+   ========================================================================== */
+.loan-app-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.app-mini-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.app-mini-card h5 {
+  margin: 0 0 6px 0;
+  text-transform: uppercase;
+  font-size: 10px;
+  color: #94a3b8;
+  letter-spacing: 0.5px;
+}
+
+.app-mini-card h3 {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+  color: white;
+}
+
+.active-border { border-left: 3px solid #10b981; }
+.pending-border { border-left: 3px solid #f59e0b; }
+.closed-border { border-left: 3px solid #94a3b8; }
+.rejected-border { border-left: 3px solid #f43f5e; }
+
+/* ==========================================================================
+   Form Input Components & Lookups Layout
+   ========================================================================== */
+.panel-inner-title {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: white;
+  margin: 20px 0 16px 0;
+}
+
+.form-label-tag {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  color: #94a3b8;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.form-input-field {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 12px;
+  font-size: 13px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.search-profile-box { background: #0b1120; }
+.mono { font-family: monospace; }
+.font-bold { font-weight: 600; }
+
+/* Native Date Input Customization Overrides */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+}
+
+.form-grid-2x2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.form-submit-action-btn {
+  width: 100%;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(to right, #059669, #06b6d4);
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+/* Profile Suggestions Popups */
+.verification-section { position: relative; }
+.profile-match-dropdown {
+  position: absolute; top: 100%; left: 0; width: 100%;
+  background: #111827; border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px; z-index: 50; overflow: hidden; margin-top: 4px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+.match-suggestions-list { list-style: none; padding: 0; margin: 0; }
+.suggestion-item-btn {
+  width: 100%; background: transparent; border: none; padding: 12px;
+  color: white; text-align: left; display: flex; justify-content: space-between; cursor: pointer;
+}
+.suggestion-item-btn:hover { background: rgba(255,255,255,0.08); }
+.suggestion-item-meta { font-size: 11px; color: #64748b; }
+.form-alert-banner {
+  background: rgba(16, 185, 129, 0.15); color: #10b981;
+  padding: 12px; border-radius: 12px; font-size: 12px; margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   Underwriting Decision Board Panel & Filters
+   ========================================================================== */
+.ledger-header-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.ledger-search-box {
+  width: 100%;
+  background: #0b1120;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 10px 14px;
+  font-size: 12px;
+  color: white;
+  box-sizing: border-box;
+}
+
+.ledger-tabs-row {
+  display: flex; gap: 4px; background: rgba(0, 0, 0, 0.2);
+  padding: 4px; border-radius: 10px; overflow-x: auto;
+}
+
+.tab-node {
+  background: transparent; border: none; padding: 6px 12px;
+  font-size: 11px; color: #94a3b8; font-weight: 600; cursor: pointer; border-radius: 6px;
+  white-space: nowrap;
+}
+.tab-node.active { background: rgba(255,255,255,0.08); color: #22d3ee; }
+
+/* Table Components */
+.ledger-table-scroll-wrapper { width: 100%; overflow-x: auto; }
+.ledger-table { width: 100%; border-collapse: collapse; }
+.ledger-table th { text-align: left; padding: 12px; font-size: 11px; color: #94a3b8; text-transform: uppercase; border-bottom: 1px solid rgba(255,255,255,0.1); }
+.ledger-table td { padding: 12px; color: white; font-size: 13px; border-bottom: 1px solid rgba(255,255,255,0.04); vertical-align: middle; }
+
+.ledger-cust-name { font-weight: 600; }
+.ledger-loan-meta { font-size: 11px; color: #64748b; margin-top: 2px; }
+
+/* Status Badges */
+.badge { padding: 3px 8px; border-radius: 20px; font-size: 10px; font-weight: 700; text-transform: uppercase; }
+.badge-active { background: rgba(16, 185, 129, 0.15); color: #10b981; }
+.badge-pending { background: rgba(245, 158, 11, 0.15); color: #f59e0b; }
+.badge-closed { background: rgba(148, 163, 184, 0.15); color: #94a3b8; }
+.badge-rejected { background: rgba(244, 63, 94, 0.15); color: #f43f5e; }
+
+/* Decision Buttons Underwriting */
+.decision-btn-cluster { display: flex; gap: 6px; justify-content: flex-end; }
+.verdict-btn {
+  border: none; padding: 4px 10px; border-radius: 6px;
+  font-size: 11px; font-weight: 600; cursor: pointer; transition: opacity 0.15s;
+}
+.v-approve { background: #10b981; color: white; }
+.v-reject { background: #f43f5e; color: white; }
+.verdict-btn:hover { opacity: 0.85; }
+.ledger-empty { text-align: center; color: #64748b; padding: 30px !important; font-style: italic; }
+
+
+.v-delete {
+  background: #991b1b;
+  border: 1px solid #7f1d1d;
+  color: #fecaca;
+  padding: 4px 8px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 11px;
+  margin-left: 4px;
+}
+.v-delete:hover { background: #7f1d1d; }
+.decision-btn-cluster { display: flex; justify-content: flex-end; align-items: center; }
